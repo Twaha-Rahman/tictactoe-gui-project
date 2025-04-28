@@ -38,42 +38,6 @@ class Db {
         }
     }
 
-    // public static void main(String[] str) {
-    // try {
-    // con = DriverManager.getConnection("jdbc:mysql://localhost:3306/tictactoe",
-    // "root", "");
-    //
-    // // addUser("akib", "akib@gmail.com", "123");
-    //
-    // int[] cells = new int[9];
-    // for (int c = 0; c < cells.length; c++) {
-    // cells[c] = 1;
-    // }
-    //
-    // String cellString = "";
-    // for (int i = 0; i < cells.length; i++) {
-    // cellString += cells[i];
-    // }
-    //
-    // // addGameInfo(1, "akib", "shihab", cellString, true);
-    // // updateGameState(2, cellString, false);
-    // // updateGameStatus(2, 69);
-    // int res = getOngoingGameId("akib", "shihab");
-    // // int res = getOngoingGameId("twaha", "rohan");
-    //
-    // if (res != -1) {
-    // System.out.println("Yes, there's an ongoing match between them.");
-    // } else {
-    // System.out.println("No, there's no ongoing game between them...");
-    // }
-    // } catch (Exception e) {
-    // // TODO: handle exception
-    // System.out.println("Catched an error: " + e.toString());
-    // System.exit(1);
-    // }
-    //
-    // }
-
     public void addUser(String username, String email, String password) throws SQLException {
         String query = "INSERT INTO user_info (name, email, password) VALUES (?,?,?)";
 
