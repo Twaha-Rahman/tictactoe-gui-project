@@ -1,6 +1,9 @@
+import com.formdev.flatlaf.FlatLightLaf;
+
 import javax.swing.*;
 import javax.swing.border.*;
 import java.awt.*;
+import java.awt.event.*;
 import java.util.HashMap;
 import java.util.Vector;
 
@@ -9,32 +12,33 @@ public class UserAuthApp {
     public static HashMap<String, String> userDatabase = new HashMap<>();
     public static HashMap<String, String> emailDatabase = new HashMap<>();
 
-    public static String loggedInUsersArr[] = new String[2];
-    public static String loggedInEmailsArr[] = new String[2];
+    public static String[] loggedInUsersArr = new String[2];
+    public static String[] loggedInEmailsArr = new String[2];
 
     public static Db db = new Db();
 
     public static void main(String[] args) {
         // Set Nimbus look and feel for modern UI
-        try {
-            for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (Exception e) {
-            // If Nimbus is not available, fall back to default
-            System.out.println("INFO: (LookAndFeel) Nimbus not found");
-        }
+//        try {
+//            UIManager.setLookAndFeel(new FlatLightLaf());
+//            for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
+//                if ("Nimbus".equals(info.getName())) {
+//                    UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
+//        } catch (Exception e) {
+//            // If Nimbus is not available, fall back to default
+//            System.out.println("INFO: (LookAndFeel) Nimbus not found");
+//        }
 
         SwingUtilities.invokeLater(() -> new AuthFrame().setVisible(true));
     }
 }
 
 class AuthFrame extends JFrame {
-    private CardLayout cardLayout = new CardLayout();
-    private JPanel mainPanel = new JPanel(cardLayout);
+    private final CardLayout cardLayout = new CardLayout();
+    private final JPanel mainPanel = new JPanel(cardLayout);
     private LoginPanel loginPanel = new LoginPanel(this);
     private RegisterPanel registerPanel = new RegisterPanel();
 

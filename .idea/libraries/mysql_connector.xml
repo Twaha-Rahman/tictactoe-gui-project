@@ -2,7 +2,7 @@
   <library name="mysql-connector">
     <CLASSES>
       <root url="jar://$PROJECT_DIR$/lib/mysql-connector.jar!/" />
-      <root url="jar://$PROJECT_DIR$/lib/flatlaf-3.6.jar!/" />
+      <root url="jar://$USER_HOME$/Downloads/flatlaf-3.6.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
