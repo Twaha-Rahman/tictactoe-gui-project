@@ -1,11 +1,10 @@
-import com.formdev.flatlaf.FlatLightLaf;
-
 import javax.swing.*;
 import javax.swing.border.*;
 import java.awt.*;
-import java.awt.event.*;
 import java.util.HashMap;
 import java.util.Vector;
+
+import com.formdev.flatlaf.FlatLightLaf;
 
 public class UserAuthApp {
     // Static user database accessible by all panels
@@ -19,18 +18,19 @@ public class UserAuthApp {
 
     public static void main(String[] args) {
         // Set Nimbus look and feel for modern UI
-//        try {
-//            UIManager.setLookAndFeel(new FlatLightLaf());
-//            for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
-//                if ("Nimbus".equals(info.getName())) {
-//                    UIManager.setLookAndFeel(info.getClassName());
-//                    break;
-//                }
-//            }
-//        } catch (Exception e) {
-//            // If Nimbus is not available, fall back to default
-//            System.out.println("INFO: (LookAndFeel) Nimbus not found");
-//        }
+        FlatLightLaf.setup();
+        try {
+            UIManager.setLookAndFeel(new FlatLightLaf());
+            for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (Exception e) {
+            // If Nimbus is not available, fall back to default
+            System.out.println("INFO: (LookAndFeel) Nimbus not found");
+        }
 
         SwingUtilities.invokeLater(() -> new AuthFrame().setVisible(true));
     }

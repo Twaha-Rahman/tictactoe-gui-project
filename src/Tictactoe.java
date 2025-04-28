@@ -1,7 +1,7 @@
+import java.util.Arrays;
 import java.util.Random;
 
 class Tictactoe {
-
     protected TictactoePlayer p1, p2;
     protected char[] cells;
     private boolean player1Turn;
@@ -27,7 +27,7 @@ class Tictactoe {
                 // there is an ongoing game between them; restore that game session
                 OngoingGameInfo restoredGame = db.getOngoingGameInfo(String.valueOf(gameId));
 
-                if (restoredGame.board_state.equals("")) {
+                if (restoredGame.board_state.isEmpty()) {
                     System.err.println("ERROR: Failed to recover board state from database. Aborting due to fatal error!");
                     System.exit(1);
                 }
@@ -48,9 +48,7 @@ class Tictactoe {
                 }
 
                 cells = new char[9];
-                for (int i = 0; i < cells.length; i++) {
-                    cells[i] = '.';
-                }
+                Arrays.fill(cells, '.');
 
                 String cellString = getStringifiedCells();
                 gameId = db.addGameInfo(getGameStateInt(), names[0], names[1], cellString, player1Turn);
